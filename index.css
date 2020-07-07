@@ -103,8 +103,11 @@ form button:hover {
   background-color: #23d5ab;
   text-align: center;
   cursor: pointer;
+  transition: all 0.3s ease-in;
 }
-
+.task-container table tbody tr #completed :hover {
+  color: #ee7752;
+}
 .task-container ul {
   list-style: none;
   width: 80%;
@@ -123,16 +126,7 @@ form button:hover {
   overflow-y: scroll;
   width: 100%;
 }
-.task-container li span {
-  text-align: center;
-  cursor: pointer;
-  padding: 0.3rem 0.5rem;
-  border-radius: 50%;
-  transition: background 0.3s ease;
-}
-.task-container li span:hover {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-}
+
 hr {
   width: 50%;
   margin: auto;
