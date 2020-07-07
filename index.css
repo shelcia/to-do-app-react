@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  overflow-x: none;
+}
+body {
+  /* background-color: #212121; */
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 1000% 1000%;
+  -webkit-animation: gradient 30s ease infinite;
+  animation: gradient 30s ease infinite;
+}
+nav {
+  width: 100%;
+  min-height: 10vh;
+  background-color: #121212;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+nav button {
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  padding: 0.375rem 0.75rem;
+  background-color: #f0ecec00;
+  border: none;
+  font-size: 3rem;
+}
+nav button:hover {
+  color: rgba(255, 255, 255);
+}
+nav button:focus {
+  outline: none;
+}
+form {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5vh;
+}
+form input {
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  width: 70%;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+form input:focus {
+  outline: none;
+}
+form button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.6);
+  border: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  width: 10%;
+  text-align: center;
+  margin-left: 5px;
+  border-radius: 0.25rem;
+}
+form button:hover {
+  background-color: #23a6d5;
+}
+.task-container {
+  margin: auto;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5vh;
+}
+.task-container table {
+  width: 100%;
+}
+.task-container table tbody tr td {
+  color: white;
+  background-color: #121212ac;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+}
+.task-container table tbody tr #checkbox,
+.task-container table tbody tr #del {
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+.task-container table tbody tr #del:hover {
+  background-color: #e73c7e;
+}
+.task-container table tbody tr #checkbox:hover {
+  background-color: #23d5ab;
+}
+.task-container table tbody tr #completed {
+  background-color: #23d5ab;
+  text-align: center;
+  cursor: pointer;
+}
+
+.task-container ul {
+  list-style: none;
+  width: 80%;
+}
+.task-container li {
+  position: relative;
+  color: white;
+  background-color: #121212ac;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  margin-bottom: 5px;
+  border-radius: 0.25rem;
+  overflow-x: none;
+  overflow-y: scroll;
+  width: 100%;
+}
+.task-container li span {
+  text-align: center;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+.task-container li span:hover {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+}
+hr {
+  width: 50%;
+  margin: auto;
+  margin-top: 5vh;
+  color: rgba(255, 255, 255, 0.6);
+  border-style: solid;
+  border-width: 0.5px;
+}
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@media only screen and (min-width: 480px) {
+  .task-container,
+  form {
+    width: 90%;
+  }
+}
