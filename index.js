@@ -1,11 +1,10 @@
 const Navbar = () => {
   return (
     <nav>
-      <button>To Do List</button>
+      <button>To Do App</button>
     </nav>
   );
 };
-
 const App = () => {
   const [lists, setLists] = React.useState([{ id: "1", value: "my task" }]);
   const [id, setId] = React.useState("");
@@ -17,10 +16,8 @@ const App = () => {
     e.preventDefault();
     setId(Date.now());
     setLists(prev => [...prev, { id: id, value: value }]);
-    console.log(lists);
   };
   const updateValue = e => {
-    //     console.log(e.target.value);
     setValue(e.target.value);
     updateId();
   };
@@ -31,15 +28,18 @@ const App = () => {
     const newLists = lists.filter(list => list.id !== id);
     setLists(newLists);
   };
-  //   const updateCompleteLists = (id, value) => {
-  //     console.log(id);
-  //     console.log(value);
-  //     addCompleteLists(id, value);
-  //   };
+
   const addCompleteLists = (id, value) => {
     delLists(id);
     setCompleteLists(prev => [...prev, { id: id, value: value }]);
-    console.log(Completelists);
+  };
+  const delCompleteLists = id => {
+    const newCompleteLists = Completelists.filter(list => list.id !== id);
+    setCompleteLists(newCompleteLists);
+  };
+  const updateCompleteLists = (id, value) => {
+    delCompleteLists(id);
+    setLists(prev => [...prev, { id: id, value: value }]);
   };
   return (
     <div>
@@ -50,7 +50,7 @@ const App = () => {
           id="value"
           value={value}
           onChange={updateValue}
-          placeholder="Enter task"
+          placeholder="Enter Task"
         />
         <button type="submit">Add</button>
       </form>
@@ -71,14 +71,19 @@ const App = () => {
       <div className="task-container">
         <ul>
           {Completelists.map(list => (
-            <CompleteListRender id={list.id} value={list.value} key={list.id} />
+            <CompleteListRender
+              id={list.id}
+              value={list.value}
+              key={list.id}
+              delCompleteLists={delCompleteLists}
+              updateCompleteLists={updateCompleteLists}
+            />
           ))}
         </ul>
       </div>
     </div>
   );
 };
-
 const ListRender = ({ id, value, delLists, addCompleteLists }) => {
   return (
     <table>
@@ -89,7 +94,6 @@ const ListRender = ({ id, value, delLists, addCompleteLists }) => {
             id="checkbox"
             onClick={() => {
               addCompleteLists(id, value);
-              console.log("clicked");
             }}
           >
             <i className="fa fa-check-square-o"></i>
@@ -108,19 +112,29 @@ const ListRender = ({ id, value, delLists, addCompleteLists }) => {
   );
 };
 
-const CompleteListRender = ({ id, value }) => {
+const CompleteListRender = ({
+  id,
+  value,
+  delCompleteLists,
+  updateCompleteLists
+}) => {
   return (
     <table>
       <tbody>
         <tr>
           <td width="85%">{value}</td>
-          <td id="completed">
+          <td
+            id="completed"
+            onClick={() => {
+              updateCompleteLists(id, value);
+            }}
+          >
             <i className="fa fa-check-square"></i>
           </td>
           <td
             id="del"
             onClick={() => {
-              console.log("clicked");
+              delCompleteLists(id);
             }}
           >
             <i className="fa fa-trash-o buttons"></i>
@@ -130,5 +144,4 @@ const CompleteListRender = ({ id, value }) => {
     </table>
   );
 };
-
 ReactDOM.render(<App />, document.getElementById("root"));
