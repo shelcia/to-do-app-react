@@ -55,60 +55,62 @@ const App = () => {
         <button type="submit">Add</button>
       </form>
       <div className="task-container">
-        <ul>
-          {lists.map(list => (
-            <ListRender
-              id={list.id}
-              value={list.value}
-              key={list.id}
-              delLists={delLists}
-              addCompleteLists={addCompleteLists}
-            />
-          ))}
-        </ul>
+        <table>
+          <tbody>
+            {lists.map(list => (
+              <ListRender
+                id={list.id}
+                value={list.value}
+                key={list.id}
+                delLists={delLists}
+                addCompleteLists={addCompleteLists}
+              />
+            ))}
+          </tbody>
+        </table>
       </div>
       <hr />
       <div className="task-container">
-        <ul>
-          {Completelists.map(list => (
-            <CompleteListRender
-              id={list.id}
-              value={list.value}
-              key={list.id}
-              delCompleteLists={delCompleteLists}
-              updateCompleteLists={updateCompleteLists}
-            />
-          ))}
-        </ul>
+        <table>
+          <tbody>
+            {Completelists.map(list => (
+              <CompleteListRender
+                id={list.id}
+                value={list.value}
+                key={list.id}
+                delCompleteLists={delCompleteLists}
+                updateCompleteLists={updateCompleteLists}
+              />
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
 };
 const ListRender = ({ id, value, delLists, addCompleteLists }) => {
   return (
-    <table>
-      <tbody>
-        <tr>
-          <td width="85%">{value}</td>
-          <td
-            id="checkbox"
-            onClick={() => {
-              addCompleteLists(id, value);
-            }}
-          >
-            <i className="fa fa-check-square-o"></i>
-          </td>
-          <td
-            id="del"
-            onClick={() => {
-              delLists(id, value);
-            }}
-          >
-            <i className="fa fa-trash-o buttons"></i>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <tr>
+      <td width="85%">{value}</td>
+      <td
+        width="7.5%"
+        id="checkbox"
+        onClick={() => {
+          addCompleteLists(id, value);
+        }}
+      >
+        <i className="fa fa-check-square-o"></i>
+      </td>
+      <td
+        width="7.5%"
+        id="del"
+        onClick={() => {
+          delLists(id, value);
+        }}
+      >
+        <i className="fa fa-trash-o buttons"></i>
+      </td>
+    </tr>
   );
 };
 
@@ -119,29 +121,27 @@ const CompleteListRender = ({
   updateCompleteLists
 }) => {
   return (
-    <table>
-      <tbody>
-        <tr>
-          <td width="85%">{value}</td>
-          <td
-            id="completed"
-            onClick={() => {
-              updateCompleteLists(id, value);
-            }}
-          >
-            <i className="fa fa-check-square"></i>
-          </td>
-          <td
-            id="del"
-            onClick={() => {
-              delCompleteLists(id);
-            }}
-          >
-            <i className="fa fa-trash-o buttons"></i>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <tr>
+      <td width="85%">{value}</td>
+      <td
+        width="7.5%"
+        id="completed"
+        onClick={() => {
+          updateCompleteLists(id, value);
+        }}
+      >
+        <i className="fa fa-check-square"></i>
+      </td>
+      <td
+        width="7.5%"
+        id="del"
+        onClick={() => {
+          delCompleteLists(id);
+        }}
+      >
+        <i className="fa fa-trash-o buttons"></i>
+      </td>
+    </tr>
   );
 };
 ReactDOM.render(<App />, document.getElementById("root"));
