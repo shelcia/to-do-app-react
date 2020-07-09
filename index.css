@@ -76,6 +76,7 @@ form button:hover {
   align-items: center;
   justify-content: center;
   margin-top: 5vh;
+  overflow:auto;
 }
 .task-container table {
   width: 100%;
