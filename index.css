@@ -71,15 +71,15 @@ form button:hover {
 }
 .task-container {
   margin: auto;
-  max-width: 70%;
+  width: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 5vh;
-  overflow-x:auto;
+  overflow-x: auto;
 }
 .task-container table {
-  width: 100%;
+  width: 80%;
 }
 .task-container table tbody tr td {
   color: white;
@@ -87,6 +87,7 @@ form button:hover {
   align-items: center;
   padding: 0.75rem;
   border-radius: 0.25rem;
+  word-break: break-all;
 }
 .task-container table tbody tr #checkbox,
 .task-container table tbody tr #del {
@@ -108,24 +109,6 @@ form button:hover {
 }
 .task-container table tbody tr #completed :hover {
   color: #ee7752;
-}
-.task-container ul {
-  list-style: none;
-  width: 80%;
-}
-.task-container li {
-  position: relative;
-  color: white;
-  background-color: #121212ac;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem;
-  margin-bottom: 5px;
-  border-radius: 0.25rem;
-  overflow-x: none;
-  overflow-y: scroll;
-  width: 100%;
 }
 
 hr {
