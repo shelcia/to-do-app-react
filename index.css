@@ -71,12 +71,12 @@ form button:hover {
 }
 .task-container {
   margin: auto;
-  width: 70%;
+  max-width: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 5vh;
-  overflow:auto;
+  overflow-x:auto;
 }
 .task-container table {
   width: 100%;
